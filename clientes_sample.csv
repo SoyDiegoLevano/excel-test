@@ -1,0 +1,3 @@
+customer_type,name,companyName,identityNumber,email,taxId,phone,address,created_at,updated_at
+Personal,Juan Perez,,123456789,juan@example.com,,555-1234,Calle Falsa 123,2025-03-27 16:14:16.719020,2025-03-27 16:14:16.719023
+Empresa,ACME Corp,ACME Corporation,987654321,contacto@acme.com,A1B2C3,555-5678,Avenida Siempre Viva 742,2025-03-27 16:14:16.719022,2025-03-27 16:14:16.719023

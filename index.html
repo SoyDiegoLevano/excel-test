@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Subir Archivo Excel o CSV de Clientes</title>
+</head>
+<body>
+  <h1>Subir Archivo Excel o CSV de Clientes</h1>
+  <form id="upload-form" method="post" enctype="multipart/form-data">
+    <input type="file" name="file" accept=".xlsx, .xls, .csv">
+    <br><br>
+    <button type="submit">Subir Archivo</button>
+  </form>
+  <div id="response"></div>
+
+  <script>
+    const form = document.getElementById('upload-form');
+    const responseDiv = document.getElementById('response');
+
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const formData = new FormData(form);
+
+      // URL base de la API apuntando al puerto 8000
+      const apiBaseUrl = "http://127.0.0.1:8000";
+
+      try {
+        const response = await fetch(`${apiBaseUrl}/upload`, {
+          method: 'POST',
+          body: formData
+        });
+        const result = await response.json();
+        responseDiv.innerHTML = '<pre>' + JSON.stringify(result, null, 2) + '</pre>';
+      } catch (error) {
+        responseDiv.innerHTML = '<pre>Error: ' + error.message + '</pre>';
+      }
+    });
+  </script>
+</body>
+</html>
